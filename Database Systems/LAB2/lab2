@@ -1,1 +1,43 @@
+1)create table employee(
+empno number primary key,
+empname varchar(10) not null,
+gender char(1) not null,
+salary decimal(10,2) not null,
+address varchar(20) not null,
+dno number,
+check(gender in('M','F')));
+
+2)create table department(
+deptno number primary key,
+deptname varchar(10)not null,
+location varchar(10));
+
+3)alter table employee add constraint c1 foreign key (dno) references department(deptno); 
+
+4)INSERT INTO employee VALUES (1, 'John', 'M', 50000, '123 Main St', 101);
+INSERT INTO employee VALUES (2, 'Jane', 'F', 60000, '456 Oak St', 102);
+INSERT INTO employee VALUES (3, 'Bob', 'M', 55000, '789 Pine St', 101);
+INSERT INTO employee VALUES (4, 'Alice', 'F', 70000, '321 Elm St', 103);
+INSERT INTO employee VALUES (5, 'Chuck', 'M', 60000, '987 Maple St', 102);
+INSERT INTO department VALUES (101, 'HR', 'New York');
+INSERT INTO department VALUES (102, 'IT', 'Florida');
+INSERT INTO department VALUES (103, 'Finance', 'Chicago');
+INSERT INTO department VALUES (104, 'Marketing', 'Vegas');
+INSERT INTO department VALUES (105, 'Operations', 'Dallas');
+
+5)insert into employee values(1,'Komal','M',4333,'Kolkata',101);
+insert into employee values(5,'Chirag','l',4333,'Kolkata',101);
+insert into employee values(6,'Kavita','F',4333,null,101);
+
+6)delete from department where deptno=101;
+
+7)alter table employee drop constraint c1;
+alter table employee add constraint c2 foreign key(dno) references department(deptno) on delete cascade;
+
+8)--alter table employee add constraint defaultsal default 1000 for salary;
+alter table employee modify (salary default 10000);
+insert into employee (empno, empname, gender, address, dno) values (7, 'Komal', 'F', 'Kolkata', 101);
+select * from employee where empname='Komal';
+
+
 
