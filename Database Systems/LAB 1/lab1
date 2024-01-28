@@ -1,0 +1,32 @@
+create table employee(
+empName varchar(10),
+empNo number,
+empAddress varchar(20));
+
+Insert into employee values ("Komal",20,"Manipal");
+Insert into employee values ("Aaryan",21,"Bangalore");
+Insert into employee values ("Chirag",26,"Hyderabad");
+Insert into employee values ("Kavita",51,"Calcutta");
+Insert into employee values ("Sanjay",54,"Darjeeling");
+
+select empName from employee;
+
+select * from employee where empAddress="Manipal";
+
+alter table employee add salary number;
+
+update employee set salary=1000 where empname="Komal";
+update employee set salary=2000 where empname="Aaryan";
+update employee set salary=3000 where empname="Chirag";
+update employee set salary=4000 where empname="Sanjay";
+update employee set salary=5000 where empname="Kavita";
+
+desc employee;
+
+delete from employee where empAddress="Bangalore";
+
+alter table employee rename to employee1;
+
+drop table employee1;
+
+
