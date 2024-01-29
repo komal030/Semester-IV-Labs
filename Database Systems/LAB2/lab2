@@ -36,8 +36,22 @@ alter table employee add constraint c2 foreign key(dno) references department(de
 
 8)--alter table employee add constraint defaultsal default 1000 for salary;
 alter table employee modify (salary default 10000);
-insert into employee (empno, empname, gender, address, dno) values (7, 'Komal', 'F', 'Kolkata', 101);
+insert into employee (empno, empname, gender, address, dno)
+values (7, 'Komal', 'F', 'Kolkata', 101);
 select * from employee where empname='Komal';
+
+9)select name,dept_name from student;
+
+10)select * from instructor where dept_name='Comp. Sci.';
+
+11)select title from course where dept_name='Comp. Sci.' and credits=3;
+
+12)select course-id,title from takes,course where takes.course_id=course.course_id and takes.id='12345';
+
+13)select * from instructor where salary>=40000 and salary<=90000;
+
+14)
+
 
 
 
