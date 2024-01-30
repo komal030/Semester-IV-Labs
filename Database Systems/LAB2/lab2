@@ -72,6 +72,15 @@ where takes.year=2009;
 >any(select salary from instructor where dept_name='Comp. Sci.');
 
 18)select name,dept_name from instructor where dept_name like '%in%';
+ 
+19)select name,length(name) as len from student;
+
+20)select dept_name, substr(dept_name,3,3) from department;
+
+21)select upper(name) from instructor;
+
+23)select salary,round(salary,3,-2) from instructor;
+
 
 ADDITIONAL EXERCISE:
 
