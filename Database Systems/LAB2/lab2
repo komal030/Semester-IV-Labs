@@ -14,6 +14,7 @@ location varchar(10));
 
 3)alter table employee add constraint c1 foreign key (dno) references department(deptno); 
 
+
 4)INSERT INTO employee VALUES (1, 'John', 'M', 50000, '123 Main St', 101);
 INSERT INTO employee VALUES (2, 'Jane', 'F', 60000, '456 Oak St', 102);
 INSERT INTO employee VALUES (3, 'Bob', 'M', 55000, '789 Pine St', 101);
@@ -50,8 +51,43 @@ select * from employee where empname='Komal';
 
 13)select * from instructor where salary>=40000 and salary<=90000;
 
-14)
+14) select id from instructor where instructor.id not in
+(select id from teaches);
 
+15)
+SELECT DISTINCT Student.name AS student_name, Course.title AS course_title, Takes.year
+FROM Takes
+JOIN Student ON Takes.ID = Student.ID
+JOIN Section ON Takes.course_id = Section.course_id
+JOIN Course ON Takes.course_id = Course.course_id
+WHERE Section.room_number = '101';
 
+16)
+select student.name,takes.course_id as c_name
+from student
+join takes on takes.id=student.id
+where takes.year=2009;
 
+17)select name,salary as inst_salary from instructor where salary
+>any(select salary from instructor where dept_name='Comp. Sci.');
 
+18)select name,dept_name from instructor where dept_name like '%in%';
+
+ADDITIONAL EXERCISE:
+
+1)Alter table employee add constraint salcheck check(salary>5000);
+
+5)select dept_name from department where dept_name 
+not in (select dept_name from instructor); 
+
+6)select distinct instructor.name,teaches.course_id from
+instructor natural join teaches;
+
+7)select distinct instructor.name,teaches.course_id from instructor natural join teaches;
+
+8)select student.name,student.dept_name,instructor.name,count(takes.id)
+from student 
+join takes on student.id=takes.id
+join advisor on student.id=advisor.s_id
+join instructor on instructor.id=advisor.i_id
+group by student.name,student.dept_name,instructor.name;
